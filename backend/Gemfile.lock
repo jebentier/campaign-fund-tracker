@@ -240,6 +240,7 @@ DEPENDENCIES
   contextual_logger
   declare_schema
   falcon
+  globalid
   graphql
   oj
   pry

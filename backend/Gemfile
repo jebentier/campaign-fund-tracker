@@ -6,6 +6,7 @@ gem "activesupport"
 gem "contextual_logger"
 gem "declare_schema"
 gem "falcon"
+gem "globalid"
 gem 'graphql'
 gem "oj"
 gem "psych", "~> 3.0"

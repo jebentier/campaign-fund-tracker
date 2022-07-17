@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-class Committee < ActiveRecord::Base
+require_relative 'base'
+
+class Committee < Base
   declare_schema id: :integer do
     string :name,              null: false, limit: 255, validates: { presence: true }
     string :state,             null: false, limit: 20,  validates: { presence: true }

@@ -12,7 +12,7 @@ module Types
 
     field :amount,      Float,   null: false
     field :donated_on,  Integer, null: false
-    field :source,      Types::Committee, null: false
-    field :destination, Types::Candidate, null: false
+    field :source,      Types::LegalEntityInterface, null: false
+    field :destination, Types::LegalEntityInterface, null: false
   end
 end

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-class OperatingExpense < ActiveRecord::Base
+require_relative 'base'
+
+class OperatingExpense < Base
   declare_schema id: :integer do
     string :name,            limit: 255, null: false, validates: { presence: true }
     string :fec_foriegn_key, limit: 50,  null: false, validates: { presence: true }
