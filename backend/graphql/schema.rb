@@ -7,6 +7,8 @@ class GraphqlSchema < GraphQL::Schema
   query QueryType
 
   orphan_types [Types::Committee, Types::Candidate]
+  default_page_size     10
+  default_max_page_size 100
 
   class << self
     def resolve_type(type, obj, ctx)

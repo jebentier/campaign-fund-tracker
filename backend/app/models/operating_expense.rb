@@ -9,7 +9,11 @@ class OperatingExpense < Base
     string :state,           limit: 20,  null: false, validates: { presence: true }
     string :country,         limit: 20,  null: false, validates: { presence: true }
     float  :amount,                      null: false, validates: { presence: true }
+
+    timestamps
   end
+
+  belongs_to :data_source
 
   belongs_to :candidate
 end

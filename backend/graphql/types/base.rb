@@ -14,33 +14,18 @@ module Types
     field :state,   String, null: false
     field :country, String, null: false
 
-    field :total_outbound_contributions, Float,  null: false
-    field :total_inbound_contributions,  Float,  null: false
-    field :outbound_contributions,       [Types::Contribution], null: false do
-      argument :first,  Integer, required: false, default_value: 10
-      argument :offset, Integer, required: false, default_value: 0
-      argument :id,     ID,      required: false, default_value: nil
-    end
-    field :inbound_contributions,        [Types::Contribution], null: false do
-      argument :first,  Integer, required: false, default_value: 10
-      argument :offset, Integer, required: false, default_value: 0
-      argument :id,     ID,      required: false, default_value: nil
+    field :total_outbound_contributions, Float, null: false
+    field :total_inbound_contributions,  Float, null: false
+
+    field :outbound_contributions,       Types::Contribution.connection_type, null: false
+    field :inbound_contributions,        Types::Contribution.connection_type, null: false
+
+    def outbound_contributions
+      object.outbound_contributions
     end
 
-    def outbound_contributions(first:, offset:, id:)
-      if id
-        object.outbound_contributions.where(id: id)
-      else
-        object.outbound_contributions.limit(first).offset(offset)
-      end
-    end
-
-    def inbound_contributions(first:, offset:, id:)
-      if id
-        object.outbound_contributions.where(id: id)
-      else
-        object.outbound_contributions.limit(first).offset(offset)
-      end
+    def inbound_contributions
+      object.inbound_contributions
     end
 
     def total_outbound_contributions

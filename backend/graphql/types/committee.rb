@@ -2,6 +2,7 @@
 
 require 'graphql'
 require_relative 'base'
+require_relative 'data_source'
 
 module Types
   class Contribution < Base; end
@@ -11,7 +12,8 @@ module Types
 
     description 'Resembels a legal entitee that has committted to a candidate'
 
-    field :entity_type,     String, null: false
-    field :fec_foriegn_key, String, null: false
+    field :entity_type,     String,            null: false
+    field :fec_foriegn_key, String,            null: false
+    field :data_source,     Types::DataSource, null: false
   end
 end
