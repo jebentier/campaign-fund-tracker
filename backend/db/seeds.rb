@@ -47,7 +47,7 @@ ActiveRecord::Base.transaction do
   File.open(File.expand_path('../data/raw/fec/2022/committees.csv', __dir__), 'r') do |file|
     file.each_line do |line|
       data = line.split('|')
-      Committee.create!(name: data[1], fec_foriegn_key: data[0], entity_type: data[8].presence || 'N/A', state: data[5].presence || 'N/A', country: 'USA', data_source: fec)
+      Committee.create!(name: data[1], fec_foriegn_key: data[0], entity_type: data[8].presence || 'N/A', state: data[6].presence || 'N/A', country: 'USA', data_source: fec)
       progress_counter += 1
       print_progress(progress_counter)
     end
