@@ -1,0 +1,22 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+gem "activesupport"
+gem "contextual_logger"
+gem "declare_schema"
+gem "falcon"
+gem 'graphql'
+gem "oj"
+gem "psych", "~> 3.0"
+gem "rake"
+gem 'rack-contrib'
+gem "sinatra"
+gem "sinatra-activerecord"
+gem "sinatra-cors"
+gem "sqlite3"
+
+group :development do
+  gem "pry"
+  gem "pry-byebug"
+end
