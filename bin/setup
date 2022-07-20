@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -exo pipefail
+
+pushd frontend
+yarn install
+popd
+
+pushd backend
+bundle install
+pushd data
+tar -xvf data.tar.gz
+bundle exec db:create db:migrate db:seed
+popd
+
+gem install foreman
